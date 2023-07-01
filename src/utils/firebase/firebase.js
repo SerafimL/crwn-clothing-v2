@@ -1,0 +1,21 @@
+import { initializeApp } from "firebase/app";
+import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+
+const firebaseConfig = {
+	apiKey: "AIzaSyCvWaf9bq6_W0arV74tPATir64sLV7JQb0",
+	authDomain: "udemy-crwn-cloth.firebaseapp.com",
+	projectId: "udemy-crwn-cloth",
+	storageBucket: "udemy-crwn-cloth.appspot.com",
+	messagingSenderId: "891397604468",
+	appId: "1:891397604468:web:daf20d4a5b692afd0b7d21"
+};
+
+const firebaseApp = initializeApp(firebaseConfig);
+
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({
+	prompt: 'select_account'
+});
+
+export const auth = getAuth();
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
