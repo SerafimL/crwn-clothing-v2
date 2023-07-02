@@ -19,16 +19,19 @@ provider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = (userAuth) => {
 	const userDocRef = doc(db, 'users', userAuth.uid);
-	console.log(userDocRef);
+	//console.log(userDocRef);
 
 	getDoc(userDocRef).then(userSnapshot => {
-		console.log(userSnapshot);
-		console.log(userSnapshot.exists());
+		//console.log(userSnapshot);
+		//console.log(userSnapshot.exists());
 		
 		if(userSnapshot.exists()) return;
 
