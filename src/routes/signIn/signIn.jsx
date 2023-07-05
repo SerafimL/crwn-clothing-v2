@@ -5,7 +5,7 @@ import {
 } from '../../utils/firebase/firebase'
 
 const SignIn = () => {
-    const logGoogleUser = () => signInWithGooglePopup().then(({user}) => user).then(user => {
+    const logGoogleUser = () => signInWithGooglePopup().then(({user}) => {
         createUserDocumentFromAuth(user);
     });
 
